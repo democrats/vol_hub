@@ -243,7 +243,7 @@ input {
                 position: relative;
                 &:hover {
                     background-size: auto 120%;
-                -webkit-background-size: auto 120%;
+                    -webkit-background-size: auto 120%;
                 }
                 h1,
                 h2 {
@@ -255,7 +255,7 @@ input {
                 }
             }
             .action-overlay {
-                height:100%;
+                height: 100%;
                 width: 100%;
                 padding: 1em;
                 position: absolute;
@@ -454,6 +454,101 @@ input {
     padding-right: 15px;
 }
 
+//Volunteer hub
+#title-banner {
+    position: relative;
+    background: url('//d3rk1vod59vegc.cloudfront.net/http_s3.amazonaws.com/uploads.democrats.org/Banners/2016_Pattern_Blue_1200x300.png');
+    background-position: 50% 50%;
+    background-size: cover;
+    min-height: 320px;
+    
+    .title-banner-inner {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        @include border-box;
+        h1 {
+            text-transform: uppercase;
+        }
+    }
+}
+
+#vol-hub {
+    margin: 2em 0;
+    text-align: center;
+    text-transform: uppercase;
+    p {
+        text-transform: none;
+        text-align: left;
+    }
+    .vol-tile {
+        padding: 1em;
+        .inner-tile {
+            background-size: 100% auto;
+            height: 100%;
+            display: block;
+            min-height: 15em;
+            color: #fff;
+            text-decoration: none;
+            position: relative;
+            &.protect-tile {
+                background-image: url('https://s3.amazonaws.com/frontend-assets.dnc.org/images/vol_hub/vol_hub_5.png');
+            }
+            &.talk-tile {
+                background-image: url('https://s3.amazonaws.com/frontend-assets.dnc.org/images/vol_hub/vol_hub_1.jpg');
+                background-position: 0% 50%;
+            }
+            &.call-tile {
+                background-image: url('https://s3.amazonaws.com/frontend-assets.dnc.org/images/vol_hub/vol_hub_2.jpg');
+                background-position: 0% 50%;
+            }
+            &.tell-tile {
+                background-image: url('https://s3.amazonaws.com/frontend-assets.dnc.org/images/vol_hub/vol_hub_4.jpg');
+                background-position: 0% 50%;
+            }
+            .vol-text {
+                font-family: "Gotham A", "Gotham B", sans-serif;
+                font-weight: bold;
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                display: -webkit-flex;
+                display: -moz-flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.5em;
+                transition: background-color 0.7s ease;
+                -webkit-transition: background-color 0.7s ease;
+                -moz-transition: background-color 0.7s ease;
+                &.protect-text {
+                    background-color: rgba(0, 174, 243, 0.7);
+                }
+                &.talk-text {
+                    background-color: rgba(5, 128, 185, 0.7);
+                }
+                &.call-text {
+                    background-color: rgba(10, 82, 128, 0.7);
+                }
+                &.tell-text {
+                    background-color: rgba(15, 36, 70, 0.7);
+                }
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.5);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
 //Mobile 
 @media screen and (max-width: 1024px) {
     #main .main-body {
@@ -465,12 +560,60 @@ input {
                 -webkit-transition: all .3s ease-in-out;
                 -moz-transition: all .3s ease-in-out;
                 &:hover {
-                    
                     background-size: auto 110%;
                     -webkit-background-size: auto 110%;
                 }
             }
         }
+    }
+}
+
+//Vol Hub mobile
+#title-banner {
+    @media (min-width: 1200px) {
+        h1 {
+            font-size: 100px;
+            line-height: 86px;
+        }
+        
+            min-height: 320px;
+        
+    }
+    @media (max-width: 1200px) {
+        h1 {
+            font-size: 100px;
+            line-height: 86px;
+        }
+        
+            min-height: 320px;
+        
+    }
+    @media (max-width: 992px) {
+        h1 {
+            font-size: 80px;
+            line-height: 80px;
+        }
+        
+            min-height: 150px;
+        
+    }
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 50px;
+            line-height: 60px;
+        }
+        
+            min-height: 100px;
+        
+    }
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 40px;
+            line-height: 44px;
+        }
+        
+            min-height: 70px;
+        
     }
 }
 
@@ -511,12 +654,10 @@ input {
                 background-color: #ccc;
                 background-size: 100% auto;
                 -webkit-background-size: 100% auto;
-                
                 transition: all .3s ease-in-out;
                 -webkit-transition: all .3s ease-in-out;
                 -moz-transition: all .3s ease-in-out;
                 &:hover {
-                    
                     background-size: 110% auto;
                     -webkit-background-size: 110% auto;
                 }
@@ -544,8 +685,8 @@ input {
             background-size: auto 100%;
             -webkit-background-size: auto 100%;
             transition: all .3s ease-in-out;
-                -webkit-transition: all .3s ease-in-out;
-                -moz-transition: all .3s ease-in-out;
+            -webkit-transition: all .3s ease-in-out;
+            -moz-transition: all .3s ease-in-out;
             &:hover {
                 background-size: auto 110%;
                 -webkit-background-size: auto 110%;
