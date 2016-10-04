@@ -1,0 +1,578 @@
+//Custom Styles
+//Use this sheet to add your custom touches to the core scss. Brand colors are listed below:
+//$brand_lt_blue
+//$brand_dk_blue
+//$brand_white
+//$brand_red
+//$brand_yellow
+//$brand_gray
+//Theme Colors
+//Use the brand colors for your theme colors
+//Body and Heading text Colors
+$theme_body: $brand_dk_blue;
+$theme_body_link: $brand_lt_blue;
+$theme_body_link_hover: $brand_dk_blue;
+$theme_heading: $brand_white;
+//Footer Colors
+$theme_footer_bg: $brand_dk_blue;
+$theme_footer_txt: $brand_white;
+$copyright_link: $brand_white;
+$copyright_link_hover: $brand_lt_blue;
+//Header Colors
+$theme_header_bg: $brand_white;
+$theme_header_txt: $brand_lt_blue;
+//Button Colors
+$theme_button_bg: $brand_white;
+$theme_button_txt: $brand_red;
+//BSD Form Colors
+$theme_form_bg: none;
+$theme_form_txt: $brand_dk_blue;
+$theme_form_btn_bg: $brand_white;
+$theme_form_btn_txt: $brand_red;
+//Mobile Breakpoints
+$size-largee: 1024px;
+$size-medium: 768px;
+$size-small: 568px;
+$gutter-padding: 1em;
+@import "mixins";
+@include gutters($gutter-padding);
+//Start Theme Customizations below: 
+.pure-button {
+    padding: 0.5em 1em;
+    font-size: 0.75em;
+    text-align: center;
+}
+
+input {
+    color: $brand_dk_blue;
+}
+
+#header {
+    text-transform: uppercase;
+    font-family: $header-font;
+    font-weight: bold;
+    padding: 1em 3em;
+    position: fixed;
+    top: 0;
+    width: calc(100% - 6em);
+    width: -webkit-calc(100% - 6em);
+    width: -moz-calc(100% - 6em);
+    z-index: 999;
+    .dems-logo {
+        float: left;
+        height: 2em;
+        .circle-d:before {
+            font-size: 45px;
+            font-weight: 100;
+            content: "\e601";
+            font-family: 'icomoon';
+            width: auto;
+            vertical-align: middle;
+        }
+        .site-title {
+            font-size: 0.75em;
+        }
+    }
+    .mobile-donate {
+        display: none;
+        float: right;
+    }
+    .navbar-toggle {
+        position: relative;
+        float: left;
+        font-weight: 100;
+        font-size: 2em;
+        line-height: 1em;
+        margin-left: 0.25em;
+        color: $brand_dk_blue;
+        &.active {
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+        &:hover {
+            cursor: pointer;
+            color: $brand_lt_blue;
+            @include transition;
+        }
+    }
+    .social {
+        padding: 0 0.5em;
+        display: inline-block;
+        float: left;
+        overflow: hidden;
+        white-space: nowrap;
+        position: relative;
+        .social-visible {
+            float: left;
+            padding-top: 0.25em;
+            //position: absolute;
+            //left: 7em;
+        }
+        a {
+            margin-right: 0.5em;
+            i {
+                font-size: 1em;
+                width: 1em;
+                text-align: center;
+                line-height: 1em;
+                background: $brand_dk_blue;
+                color: #fff;
+                border-radius: 50%;
+                padding: calc(0.5em + 1pt);
+                padding: -webkit-calc(0.5em + 1pt);
+                padding: -moz-calc(0.5em + 1pt);
+                &:hover {
+                    cursor: pointer;
+                    color: $brand_dk_blue;
+                    background: $brand_white;
+                    @include transition;
+                }
+            }
+        }
+        .social-toggle {
+            font-size: 2em;
+            margin-right: 0.5em;
+            color: $brand_dk_blue;
+            font-weight: 100;
+            display: inline-block;
+            &.active {
+                -webkit-transform: rotate(45deg);
+                -moz-transform: rotate(45deg);
+                transform: rotate(45deg);
+            }
+            &:hover {
+                cursor: pointer;
+                color: $brand_lt_blue;
+                @include transition;
+            }
+        }
+        .social-toggle-box {
+            opacity: 0;
+            display: block;
+            padding: 0.25em 0.5em 0 0.25em;
+            background: $brand_white;
+            float: left;
+            overflow: visible;
+            position: relative;
+            width: 0;
+            z-index: -1;
+            @include customTransition(all, 0.7s, ease);
+            &.active {
+                z-index: 1;
+                width: 11em;
+                opacity: 1;
+            }
+        }
+    }
+    .nav-buttons {
+        float: right;
+        .donate-btn {
+            margin-left: 0.5em;
+            margin-top: 0.5em;
+        }
+    }
+    .mobile-nav {
+        display: none;
+        width: 100%;
+        float: none;
+        clear: both;
+        text-align: center;
+        .social {
+            display: inline-block;
+            margin-top: 1em;
+            width: 100%;
+            float: none;
+            padding: 0;
+            a {
+                float: none;
+            }
+            .social-row-2 {
+                margin-top: 0.5em;
+            }
+        }
+    }
+}
+
+#main {
+    margin-top: 4.5em;
+    .main-body {
+        &> div {
+            padding: 0 3em;
+        }
+        #signup {
+            background: $brand_lt_blue;
+            color: $brand_white;
+            font-family: $header-font;
+            text-transform: uppercase;
+            padding: 0 3em;
+            .standwith-grid {
+                align-items: center;
+                & > div[class*="pure-u-"] {
+                    padding: 0.5em 1em;
+                }
+            }
+            .signup-title {
+                font-size: 1.25em;
+                font-family: $header-font;
+            }
+            #standwith-form {
+                .signup-form {
+                    input:not(input[type="submit"]) {
+                        color: $brand_dk_blue;
+                    }
+                    .submit {
+                        height: 2.5em;
+                        font-weight: bold;
+                        font-family: $header-font;
+                    }
+                }
+            }
+        }
+        #action-panel {
+            padding: 2em 3em;
+            .action-bg {
+                background-size: auto 110%;
+                -webkit-background-size: auto 110%;
+                height: 100%;
+                min-height: 15em;
+                position: relative;
+                transition: all .3s ease-in-out;
+                -webkit-transition: all .3s ease-in-out;
+                -moz-transition: all .3s ease-in-out;
+                position: relative;
+                &:hover {
+                    background-size: auto 120%;
+                -webkit-background-size: auto 120%;
+                }
+                h1,
+                h2 {
+                    margin: 0;
+                    text-transform: uppercase;
+                }
+                h2 {
+                    font-weight: 100;
+                }
+            }
+            .action-overlay {
+                height:100%;
+                width: 100%;
+                padding: 1em;
+                position: absolute;
+                @include border-box;
+                &:hover {
+                    cursor: pointer;
+                }
+                &.overlay-iwv {
+                    background: linear-gradient(135deg, rgba($brand_lt_blue, 0.8), rgba($brand_yellow, 0.8));
+                }
+                &.overlay-vol {
+                    background: linear-gradient(45deg, rgba($brand_gray, 0.7), rgba($brand_lt_blue, 0.7));
+                }
+                &.overlay-share {
+                    background: linear-gradient(135deg, rgba($brand_dk_blue, 0.7), rgba($brand_lt_blue, 0.7));
+                }
+                &.overlay-speak {
+                    background: rgba($brand_lt_blue, 0.7);
+                }
+                &.overlay-learn {
+                    background: linear-gradient(135deg, rgba(0, 12, 184, 0.7), rgba($brand_lt_blue, 0.7));
+                }
+            }
+            .action-donate {
+                & > div {
+                    background: $brand_dk_blue;
+                    padding: 1em;
+                }
+                h1 {
+                    margin: 0;
+                    text-align: center;
+                }
+                .pure-g.donate-grid {
+                    .donation-amt {
+                        & > div > div {
+                            background: $brand_lt_blue;
+                            color: $brand_white;
+                            position: relative;
+                            z-index: 1;
+                            padding: 1em 0.5em;
+                            text-align: center;
+                            box-shadow: #fff -5px 5px 0 0;
+                            &:hover {
+                                background: $brand_white;
+                                color: $brand_lt_blue;
+                                box-shadow: $brand_lt_blue -5px 5px 0 0;
+                                cursor: pointer;
+                                @include transition;
+                            }
+                        }
+                    }
+                }
+                #autofill-donate {
+                    text-align: center;
+                    input {
+                        display: none;
+                    }
+                }
+                #form-45 {
+                    input {
+                        display: none;
+                    }
+                }
+            }
+            .action-iwv {
+                .action-bg {
+                    background-image: url(../min_images/Photo_register.jpg);
+                    background-position: 50% 50%;
+                }
+            }
+            .action-vol {
+                .action-bg {
+                    background-image: url(../min_images/Photo_volunteer.jpg);
+                    background-position: 50% 50%;
+                }
+            }
+            .action-share {
+                .action-bg {
+                    background-image: url(../min_images/Photo_share.jpg);
+                    background-position: 50% 0%;
+                }
+            }
+            .action-speak {
+                .action-bg {
+                    background-image: url(../min_images/Photo_speak.jpg);
+                    background-position: 50% 50%;
+                }
+            }
+            .action-learn {
+                .action-bg {
+                    background-image: url(../min_images/Photo_learn.jpg);
+                    background-position: 50% 50%;
+                }
+            }
+        }
+        #countdown {
+            color: #fff;
+            padding: 0em 2em;
+            text-align: center;
+            font-size: 3em;
+            margin-top: 0.75em;
+            .days-until {
+                text-transform: uppercase;
+                font-family: $header-font;
+                color: $brand_dk_blue;
+                padding: 0.25em 1em;
+                .countdown-days {
+                    color: $brand_lt_blue;
+                    font-weight: bold;
+                    font-size: 1.5em;
+                }
+            }
+        }
+    }
+}
+
+#official {
+    background: $brand_lt_blue;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0.75em 3em;
+    font-size: 0.75em;
+}
+
+#footer {
+    font-size: 12px;
+    line-height: 22px;
+    .footer-right {
+        a {
+            font-weight: normal;
+        }
+    }
+    .footer-left {
+        width: 50%;
+        .site-search {
+            .search-input {
+                width: 95%;
+                display: inline-block;
+                input {
+                    height: 46px;
+                    font-size: 18px;
+                }
+            }
+            .search-btn {
+                width: 5%;
+                display: inline-block;
+                vertical-align: top;
+                position: relative;
+                .pure-button {
+                    background: $brand_white;
+                    color: $brand_lt_blue;
+                    border: 2px solid $brand_lt_blue;
+                    font-size: 20px;
+                    padding: 9px;
+                    font-weight: normal;
+                    &:hover {
+                        background: $brand_lt_blue;
+                        color: $brand_white;
+                    }
+                    &:before {
+                        content: "\e60f";
+                        font-family: 'icomoon';
+                    }
+                }
+            }
+        }
+        .press-btn {
+            text-transform: uppercase;
+            font-size: 1.25em;
+            border-color: $brand_lt_blue;
+            background: $brand_lt_blue;
+            color: $brand_white;
+            font-family: $header-font;
+            &:hover {
+                background: $brand_white;
+                color: $brand_lt_blue;
+            }
+        }
+    }
+    .footer-logo {
+        text-align: center;
+        &:before {
+            content: '\e601';
+            font-family: 'icomoon';
+            font-size: 70px;
+            font-weight: normal;
+        }
+    }
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+//Mobile 
+@media screen and (max-width: 1024px) {
+    #main .main-body {
+        #action-panel {
+            .action-bg {
+                background-size: auto 100%;
+                -webkit-background-size: auto 100%;
+                transition: all .3s ease-in-out;
+                -webkit-transition: all .3s ease-in-out;
+                -moz-transition: all .3s ease-in-out;
+                &:hover {
+                    
+                    background-size: auto 110%;
+                    -webkit-background-size: auto 110%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .signup-title {
+        text-align: center;
+    }
+    #header {
+        text-align: center;
+        .nav-buttons,
+        .site-title {
+            display: none;
+        }
+        .mobile-donate {
+            display: inline-block;
+        }
+        .dems-logo .circle-d:before {
+            font-size: 2em;
+        }
+    }
+    .pure-g>.signup-form>div[class*=pure-u-]>div {
+        padding: 0.5em 1em;
+    }
+    #main .main-body {
+        #countdown {
+            padding: 0;
+            font-size: 175%;
+        }
+        &>div {
+            padding: 0;
+        }
+        #action-panel {
+            padding: 1em;
+            .action-bg {
+                height: 100%;
+                min-height: 10em;
+                background-repeat: no-repeat;
+                background-color: #ccc;
+                background-size: 100% auto;
+                -webkit-background-size: 100% auto;
+                
+                transition: all .3s ease-in-out;
+                -webkit-transition: all .3s ease-in-out;
+                -moz-transition: all .3s ease-in-out;
+                &:hover {
+                    
+                    background-size: 110% auto;
+                    -webkit-background-size: 110% auto;
+                }
+            }
+            .action-overlay {
+                h1,
+                h2 {
+                    font-size: 150%;
+                }
+            }
+        }
+    }
+    .pure-u-1.pure-u-md-1-3.footer-links {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    #main .main-body #action-panel {
+        .action-bg {
+            height: 100%;
+            min-height: 10em;
+            background-repeat: no-repeat;
+            background-color: #ccc;
+            background-size: auto 100%;
+            -webkit-background-size: auto 100%;
+            transition: all .3s ease-in-out;
+                -webkit-transition: all .3s ease-in-out;
+                -moz-transition: all .3s ease-in-out;
+            &:hover {
+                background-size: auto 110%;
+                -webkit-background-size: auto 110%;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+    #header {
+        .navbar-toggle {
+            display: none;
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
