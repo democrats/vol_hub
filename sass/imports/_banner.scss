@@ -1,0 +1,39 @@
+#main .main-body #banner {
+	background: url(../min_images/Hillary_Podium.jpg);
+    background-size: cover;
+    background-position: 100% 0%;
+    background-color: $brand_dk_blue;
+	height: 100%;
+	position: relative;
+	padding: 0;
+	.banner-overlay {
+		background: linear-gradient(to right, rgba($brand_dk_blue,0.8) 40%, transparent);
+		height: calc(100% - 4em);
+		height: -webkit-calc(100% - 4em);
+		height: -moz-calc(100% - 4em);
+		width: calc(100% - 6em);
+		width: -webkit-calc(100% - 6em);
+		width: -moz-calc(100% - 6em);
+		padding: 2em 3em;
+		.banner-title {
+			margin-top: 0;
+			text-transform: uppercase;
+		}
+		.banner-sub-title {
+			font-weight: 100;
+			margin-bottom: 0;
+		}
+	}
+}
+@media screen and (max-width: 768px) {
+	#main .main-body #banner {
+		background-size: cover;
+		background-position: 75% 0%;
+		.banner-overlay {
+			background: rgba($brand_dk_blue, 0.7);
+		}
+		.banner-title, .banner-sub-title {
+			text-align: center;
+		}
+	}
+}
